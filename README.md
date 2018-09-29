@@ -24,3 +24,11 @@
 ### Testing
 
 - Run ```npm test``` to run the tests.
+
+
+### To build and generate bundle
+
+- Run ```yarn build```
+
+this will create a ```build``` folder in the root directory.
+The bundles JS file can be found at ```build/static/js/main.<random_num>.js```
