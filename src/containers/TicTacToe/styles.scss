@@ -1,0 +1,74 @@
+.App {
+  text-align: center;
+  padding-top: 30px;
+  position: relative;
+}
+
+.Grid-wrapper {
+   padding-top: 20px;
+ }
+
+.Grid-wrapper > table > tbody > tr > td:last-of-type {
+  border-right: 0;
+}
+
+.Grid-wrapper > table > tbody > tr > td:first-of-type {
+  border-left: 0;
+}
+
+.Grid-wrapper > table > tbody > tr:first-of-type {
+  & > td {
+    border-top: 0;
+  }
+}
+
+.Grid-wrapper--disabled {
+  padding-top: 20px;
+  pointer-events: none;
+  opacity: 0.2;
+}
+
+.Grid-wrapper--disabled > table > tbody > tr > td:last-of-type {
+  border-right: 0;
+}
+
+.Grid-wrapper--disabled > table > tbody > tr > td:first-of-type {
+  border-left: 0;
+}
+
+.Grid-wrapper--disabled > table > tbody > tr:first-of-type {
+  & > td {
+    border-top: 0;
+  }
+}
+
+.Options-wrapper {
+  padding-top: 20px;
+  padding-bottom: 50px;
+}
+
+.Button-wrapper {
+  display: inline-block;
+}
+
+.Select {
+  margin: 0 5px;
+}
+
+.Game-over {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  z-index: 9;
+  transform: translate(-50%, -50%);
+  font-size: 25px;
+  animation: color_change 1s infinite alternate;
+}
+
+@keyframes color_change {
+  0% { color: blue; }
+  25% { color: orange; }
+  50% { color: yellow; }
+  75% { color: green; }
+  100% { color: red; }
+}

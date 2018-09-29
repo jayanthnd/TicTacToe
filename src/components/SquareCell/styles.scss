@@ -1,0 +1,30 @@
+$box-border: 1px solid black;
+$box-size: 70px;
+
+.Cell {
+  position: relative;
+  height: $box-size;
+  width: $box-size;
+  background-color: white;
+  border-top: $box-border;
+  border-left: $box-border;
+  display: inline-block;
+  box-sizing: border-box;
+  margin: 0;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:last-of-type {
+    border-right: $box-border;
+  }
+}
+
+.Icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 50px;
+}
