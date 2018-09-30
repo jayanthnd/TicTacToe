@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import './styles.scss';
+import styles from './styles.scss';
 
 class Button extends Component {
   constructor(props) {
@@ -18,7 +18,7 @@ class Button extends Component {
     const { text, className } = this.props;
     return (
       <div className={className} onClick={this.handleClick}>
-        <button className="Button">{ text }</button>
+        <button className={styles.button}>{ text }</button>
       </div>
     )
   }

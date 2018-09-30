@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import './styles.scss';
+import styles from './styles.scss';
 
 class GameGrid extends Component {
   constructor(props) {
@@ -30,7 +30,7 @@ class GameGrid extends Component {
         );
       }
       //Create the parent and add the children
-      table.push(<tr key={`tr-${i}`} className={"Row"}>{children}</tr>);
+      table.push(<tr key={`tr-${i}`} className={styles.row}>{children}</tr>);
     }
     return table;
   }
@@ -39,7 +39,7 @@ class GameGrid extends Component {
     const { className } = this.props;
     return (
       <div className={className}>
-        <table className="Grid">
+        <table className={styles.grid}>
           <tbody>
           { this.createGrid() }
           </tbody>
@@ -50,7 +50,7 @@ class GameGrid extends Component {
 }
 
 GameGrid.propTypes = {
-  order: PropTypes.number,
+  order: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   cellValues: PropTypes.object,
   onCellClick: PropTypes.func,
   className: PropTypes.string

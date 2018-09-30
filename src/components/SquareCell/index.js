@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './styles.scss';
+import styles from './styles.scss';
 
 export const SquareCell = (props) => {
   const { row, col, onClick, fill } = props;
   return (
-    <td key={`td-${row}-${col}`} className="Cell" onClick={(e) => {onClick && onClick(e, row, col)}}>
-      <div className="Icon">{ fill }</div>
+    <td key={`td-${row}-${col}`} className={styles.cell} onClick={(e) => {onClick && onClick(e, row, col)}}>
+      <div className={styles.icon}>{ fill }</div>
     </td>
   );
 };

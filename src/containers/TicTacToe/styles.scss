@@ -1,61 +1,61 @@
-.App {
+.app {
   text-align: center;
   padding-top: 30px;
   position: relative;
 }
 
-.Grid-wrapper {
+.grid-wrapper {
    padding-top: 20px;
  }
 
-.Grid-wrapper > table > tbody > tr > td:last-of-type {
+.grid-wrapper > table > tbody > tr > td:last-of-type {
   border-right: 0;
 }
 
-.Grid-wrapper > table > tbody > tr > td:first-of-type {
+.grid-wrapper > table > tbody > tr > td:first-of-type {
   border-left: 0;
 }
 
-.Grid-wrapper > table > tbody > tr:first-of-type {
+.grid-wrapper > table > tbody > tr:first-of-type {
   & > td {
     border-top: 0;
   }
 }
 
-.Grid-wrapper--disabled {
+.grid-wrapper--disabled {
   padding-top: 20px;
   pointer-events: none;
   opacity: 0.2;
 }
 
-.Grid-wrapper--disabled > table > tbody > tr > td:last-of-type {
+.grid-wrapper--disabled > table > tbody > tr > td:last-of-type {
   border-right: 0;
 }
 
-.Grid-wrapper--disabled > table > tbody > tr > td:first-of-type {
+.grid-wrapper--disabled > table > tbody > tr > td:first-of-type {
   border-left: 0;
 }
 
-.Grid-wrapper--disabled > table > tbody > tr:first-of-type {
+.grid-wrapper--disabled > table > tbody > tr:first-of-type {
   & > td {
     border-top: 0;
   }
 }
 
-.Options-wrapper {
+.options-wrapper {
   padding-top: 20px;
   padding-bottom: 50px;
 }
 
-.Button-wrapper {
+.button-wrapper {
   display: inline-block;
 }
 
-.Select {
+.select {
   margin: 0 5px;
 }
 
-.Game-over {
+.game-over {
   position: absolute;
   top: 40%;
   left: 50%;

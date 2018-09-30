@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import './styles.scss';
+import styles from './styles.scss';
 import GameGrid from '../../components/GameGrid';
 import { SquareCell } from '../../components/SquareCell';
 import Button from '../../components/Button';
@@ -148,9 +148,9 @@ export class TicTacToe extends Component {
     }
 
     return (
-      <div className="App">
+      <div className={styles.app}>
         { isGameOver &&
-          <div className="Game-over">
+          <div className={styles['game-over']}>
             { GAME_OVER_MESSAGE } { gameResultMessage }
           </div>
         }
@@ -160,14 +160,14 @@ export class TicTacToe extends Component {
           Cell={SquareCell}
           cellValues={cellValues}
           onCellClick={this.handleCellClick}
-          className={isGameOver ? "Grid-wrapper--disabled" : "Grid-wrapper"}
+          className={isGameOver ? styles['grid-wrapper--disabled'] : styles['grid-wrapper']}
           isGameOver={isGameOver}
         />
-        <div className="Options-wrapper">
+        <div className={styles['options-wrapper']}>
           <span>
             Grid size:
             <select
-              className="Select"
+              className={styles.select}
               onChange={this.handleOptionClick}
               value={order}
             >
@@ -175,7 +175,7 @@ export class TicTacToe extends Component {
             </select>
             <Button
               text="Reset"
-              className="Button-wrapper"
+              className={styles['button-wrapper']}
               onClick={this.handleStartResetClick}
             />
           </span>
