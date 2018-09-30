@@ -6,39 +6,32 @@
 
 .grid-wrapper {
    padding-top: 20px;
- }
-
-.grid-wrapper > table > tbody > tr > td:last-of-type {
-  border-right: 0;
-}
-
-.grid-wrapper > table > tbody > tr > td:first-of-type {
-  border-left: 0;
-}
-
-.grid-wrapper > table > tbody > tr:first-of-type {
-  & > td {
-    border-top: 0;
-  }
 }
 
 .grid-wrapper--disabled {
-  padding-top: 20px;
+  composes: grid-wrapper;
   pointer-events: none;
   opacity: 0.2;
 }
 
-.grid-wrapper--disabled > table > tbody > tr > td:last-of-type {
-  border-right: 0;
-}
+$grids: grid-wrapper, grid-wrapper--disabled;
 
-.grid-wrapper--disabled > table > tbody > tr > td:first-of-type {
-  border-left: 0;
-}
+@each $grid in $grids {
+  &.#{$grid} > table > tbody {
+    tr > {
+      td:last-of-type {
+        border-right: 0;
+      }
 
-.grid-wrapper--disabled > table > tbody > tr:first-of-type {
-  & > td {
-    border-top: 0;
+      td:first-of-type {
+        border-left: 0;
+      }
+    }
+    tr:first-of-type {
+      td {
+        border-top: 0;
+      }
+    }
   }
 }
 
