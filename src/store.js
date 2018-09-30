@@ -13,7 +13,6 @@ export const store = createStore(
 );
 
 store.subscribe(throttle(() => {
-  console.debug('saveState');
   const { app } = store.getState();
   saveState({
     app

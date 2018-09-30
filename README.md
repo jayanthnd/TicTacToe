@@ -20,6 +20,8 @@
 - Run ```yarn``` to install all packages.
 - Run ```npm start``` to start the server.
 
+Once you start the server, you can access the app at ```http://localhost:3000/```
+
 
 ### Testing
 

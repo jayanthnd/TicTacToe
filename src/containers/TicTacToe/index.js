@@ -166,7 +166,11 @@ export class TicTacToe extends Component {
         <div className="Options-wrapper">
           <span>
             Grid size:
-            <select onChange={this.handleOptionClick} className="Select">
+            <select
+              className="Select"
+              onChange={this.handleOptionClick}
+              value={order}
+            >
               { gridOptions }
             </select>
             <Button
