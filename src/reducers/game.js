@@ -1,5 +1,7 @@
-import { RESET_GAME, UPDATE_MOVE, UPDATE_ORDER, INIT_CELL_VALUES, X, ZERO, GAME_OVER,
-  DEFAULT_ORDER } from '../constants';
+import {
+  RESET_GAME, UPDATE_MOVE, UPDATE_ORDER, INIT_CELL_VALUES, X, ZERO, GAME_OVER,
+  DEFAULT_ORDER, PLAYER_WON_GAME
+} from '../constants';
 
 const getDefaultCellValues = (order) => {
   let cellValues = {};
@@ -19,7 +21,8 @@ const initialState = {
   cellValues: getDefaultCellValues(DEFAULT_ORDER),
   order: DEFAULT_ORDER,
   isGameOver: false,
-  totalMoves: 0
+  totalMoves: 0,
+  playerWon: false
 };
 
 export default (state = initialState, action) => {
@@ -29,7 +32,8 @@ export default (state = initialState, action) => {
         cellValues: getDefaultCellValues(state.order),
         nextVal: X,
         isGameOver: false,
-        totalMoves: 0
+        totalMoves: 0,
+        playerWon: false
       });
 
     case UPDATE_ORDER:
@@ -55,7 +59,13 @@ export default (state = initialState, action) => {
 
     case GAME_OVER:
       return Object.assign({}, state, {
+        isGameOver: true
+      });
+
+    case PLAYER_WON_GAME:
+      return Object.assign({}, state, {
         isGameOver: true,
+        playerWon: true
       });
 
     default:

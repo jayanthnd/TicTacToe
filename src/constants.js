@@ -12,3 +12,4 @@ export const UPDATE_ORDER = 'UPDATE_ORDER';
 export const UPDATE_MOVE = 'UPDATE_MOVE';
 export const INIT_CELL_VALUES = 'INIT_CELL_VALUES';
 export const GAME_OVER = 'GAME_OVER';
+export const PLAYER_WON_GAME = 'PLAYER_WON_GAME';

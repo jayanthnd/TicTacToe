@@ -1,4 +1,4 @@
-import { GAME_OVER, INIT_CELL_VALUES, RESET_GAME, UPDATE_MOVE, UPDATE_ORDER } from '../constants';
+import { GAME_OVER, RESET_GAME, UPDATE_MOVE, UPDATE_ORDER, PLAYER_WON_GAME } from '../constants';
 
 export function resetGame() {
   return {
@@ -22,15 +22,15 @@ export function updateMove(row, col, val) {
   }
 }
 
-export function initCellValues(cellValues) {
+export function gameOver(playerWon) {
   return {
-    type: INIT_CELL_VALUES,
-    cellValues
+    type: GAME_OVER,
+    playerWon
   }
 }
 
-export function gameOver() {
+export function playerWonGame() {
   return {
-    type: GAME_OVER
+    type: PLAYER_WON_GAME
   }
 }

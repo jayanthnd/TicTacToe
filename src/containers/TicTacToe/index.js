@@ -4,7 +4,7 @@ import styles from './styles.scss';
 import GameGrid from '../../components/GameGrid';
 import { SquareCell } from '../../components/SquareCell';
 import Button from '../../components/Button';
-import { gameOver, resetGame, updateMove, updateOrder } from '../../actions';
+import { gameOver, resetGame, updateMove, updateOrder, playerWonGame } from '../../actions';
 import { DEFAULT_GRID_OPTIONS_SIZE, GAME_DRAW_MESSAGE, GAME_OVER_MESSAGE, GAME_TITLE, X, ZERO } from '../../constants';
 
 
@@ -62,7 +62,7 @@ export class TicTacToe extends Component {
     super(props);
     this.state = {
       gridOptions: [],
-      gridOptionsSize: DEFAULT_GRID_OPTIONS_SIZE
+      gridOptionsSize: DEFAULT_GRID_OPTIONS_SIZE,
     };
 
     this.handleCellClick = this.handleCellClick.bind(this);
@@ -85,13 +85,13 @@ export class TicTacToe extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const { order, dispatch, totalMoves } = nextProps;
+    const { order, dispatch, totalMoves, playerWon } = nextProps;
 
     if (this.props.order !== order) {
       dispatch(resetGame());
     }
 
-    if(totalMoves === order * order) {
+    if(totalMoves === order * order || playerWon) {
       dispatch(gameOver());
     }
   }
@@ -119,7 +119,7 @@ export class TicTacToe extends Component {
           const playerWon = didPlayerWin(row, col, cellValues, nextVal, order);
           if (playerWon) {
             // Dispatch event to update game status
-            dispatch(gameOver());
+            dispatch(playerWonGame());
           }
         }
       });
@@ -137,11 +137,11 @@ export class TicTacToe extends Component {
   }
 
   render() {
-    const { order, cellValues, isGameOver, totalMoves } = this.props;
+    const { order, cellValues, isGameOver, totalMoves, playerWon } = this.props;
     const { gridOptions } = this.state;
     let gameResultMessage;
 
-    if (totalMoves === order * order) {
+    if ((totalMoves === order * order) && !playerWon) {
       gameResultMessage = GAME_DRAW_MESSAGE;
     } else {
       gameResultMessage = `${totalMoves % 2 !== 0 ? X : ZERO} won!!!` ;
@@ -187,14 +187,15 @@ export class TicTacToe extends Component {
 
 
 function mapStateToProps(state) {
-  const { nextVal, cellValues, order, totalMoves, isGameOver } = state.app;
+  const { nextVal, cellValues, order, totalMoves, isGameOver, playerWon } = state.app;
 
   return {
     nextVal,
     cellValues,
     order,
     totalMoves,
-    isGameOver
+    isGameOver,
+    playerWon
   };
 }
 

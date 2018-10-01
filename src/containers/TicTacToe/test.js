@@ -60,7 +60,6 @@ describe('<TicTacToe /> tests', () => {
     });
     expect(wrapper.text()).toContain(GAME_OVER_MESSAGE);
     expect(wrapper.text()).toContain(GAME_DRAW_MESSAGE);
-    expect(wrapper.find('GameGrid').props().className).toBe('Grid-wrapper--disabled');
   });
 
   test('should show X won message when isGameOver is true and totalMoves is an odd number', () => {
@@ -71,7 +70,6 @@ describe('<TicTacToe /> tests', () => {
     });
     expect(wrapper.text()).toContain(GAME_OVER_MESSAGE);
     expect(wrapper.text()).toContain('X won!!!');
-    expect(wrapper.find('GameGrid').props().className).toBe('Grid-wrapper--disabled');
   });
 
   test('should show 0 won message when isGameOver is true and totalMoves is an even number', () => {
@@ -82,7 +80,6 @@ describe('<TicTacToe /> tests', () => {
     });
     expect(wrapper.text()).toContain(GAME_OVER_MESSAGE);
     expect(wrapper.text()).toContain('0 won!!!');
-    expect(wrapper.find('GameGrid').props().className).toBe('Grid-wrapper--disabled');
   });
 
   describe('handleStartResetClick method', () => {
